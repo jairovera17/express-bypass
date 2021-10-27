@@ -4,13 +4,13 @@ import axios from "axios";
 
 // Boot express
 const app: Application = express();
-const port = 8080;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
-app.post("/hello", async (req: Request, res: Response) => {
+app.get("/", async (req: Request, res: Response) => {
   res.send("Hi there");
 });
 
